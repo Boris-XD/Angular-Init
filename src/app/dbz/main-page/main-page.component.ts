@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-
-interface Personaje{
-  nombre: string;
-  poder: number;
-}
+import { Personaje } from '../interfaces/dbs.interface';
 
 @Component({
   selector: 'app-main-page',
@@ -15,8 +11,22 @@ export class MainPageComponent {
     nombre: "Trunks",
     poder: 122
   }
+  public personajes: Personaje[] = [
+    {
+      nombre: "Goku",
+      poder: 120
+    },
+    {
+      nombre: "Vegeta",
+      poder: 100
+    }
+  ]
   agregar(){
-    console.log(this.personaje)
-    console.log("Ejecuntado con ngForms")
+    if(this.personaje.nombre.trim().length === 0) return;
+    this.personajes.push(this.personaje);
+    this.personaje = {
+      nombre: "",
+      poder: 0
+    }
   }
 }
