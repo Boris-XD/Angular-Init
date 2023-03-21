@@ -1,0 +1,22 @@
+<p>listado works!</p>
+<ul>
+    <li *ngFor="let names of data">
+        {{ names }}
+    </li>
+</ul>
+<div *ngIf="erase; else dontErase">
+    <h3>Erase Hero</h3>
+    <span><strong>{{ erase }}</strong></span>
+</div>
+
+
+<ng-template #dontErase>
+    <div>
+        <h3>No ha borrado nada aun</h3>
+    </div>
+</ng-template>
+
+
+
+
+<button (click)="eraseHero()">Erase Heros</button>
